@@ -6,11 +6,9 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 import pojos.Account;
-import pojos.User_Response;
 import pojos.payloads.AccountPayload;
-import pojos.payloads.User_Payload;
 import test_datas.AccountTestData;
-import test_datas.UserTestData;
+
 
 import static io.restassured.RestAssured.given;
 import static org.apache.http.HttpStatus.SC_CREATED;
@@ -53,8 +51,8 @@ public class AR01_Post_CreateAccount extends GMIBankBaseUrl {
                     "createDate": null
                 }
  */
-    static int accountId;
-    static String accountSSN;
+    static int ACCOUNT_ID;
+    static String ACCOUNT_SSN;
     @Test
     public void AR01_createTPAccountRegistration() {
 
@@ -84,8 +82,8 @@ public class AR01_Post_CreateAccount extends GMIBankBaseUrl {
         assertEquals(expectedData.getSsn(),actualData.getSsn());
         assertEquals(expectedData.getMobilePhoneNumber(),actualData.getMobilePhoneNumber());
 
-        accountId=actualData.getId();
-        accountSSN=actualData.getSsn();
+        ACCOUNT_ID=actualData.getId();
+        ACCOUNT_SSN=actualData.getSsn();
 
     }
 

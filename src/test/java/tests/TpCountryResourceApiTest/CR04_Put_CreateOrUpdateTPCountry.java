@@ -5,29 +5,27 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 import pojos.Country;
-import pojos.payloads.CountryPayload;
 import test_datas.CountryTestData;
 
 import static io.restassured.RestAssured.given;
-import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
+import static tests.TpCountryResourceApiTest.CR01_Post_CreateTPCountry.COUNTRY_ID;
 import static utils.AuthUtils.generateToken;
-import static tests.TpCountryResourceApiTest.CR01_Post_CreateTPCountry.countryId;
+
 
 public class CR04_Put_CreateOrUpdateTPCountry extends GMIBankBaseUrl {
     @Test
     public void CR01_updateTPCountry() {
-        //For test
-        int tpCountryId=countryId;
+
         //if(tpCountryId==0) tpCountryId=172470;
 
         specWithAutherization.pathParam("first","tp-countries");
 
         //payload : expectedData
-        Country expectedData= CountryTestData.getTestDataForCountryPayrol_for_put(tpCountryId);
+        Country expectedData= CountryTestData.getTestDataForCountryPayrol_for_put(COUNTRY_ID);
         expectedData.setStates(null);
         expectedData.setName("Canada-Update");
         System.out.println("Expected Data = "+expectedData);

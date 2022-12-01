@@ -9,9 +9,7 @@ import test_datas.AccountTestData;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
-import static tests.TpAccountRegistrations.AR01_Post_CreateAccount.accountId;
-import static tests.TpAccountRegistrations.AR01_Post_CreateAccount.accountSSN;
-
+import static tests.TpAccountRegistrations.AR01_Post_CreateAccount.*;
 
 public class AR03_Get_GetAccounBySSN extends GMIBankBaseUrl {
     @Test
@@ -20,10 +18,10 @@ public class AR03_Get_GetAccounBySSN extends GMIBankBaseUrl {
         //accountId=164141;
         //accountSSN="111-22-333";
         //Set the url
-        specWithAutherization.pathParams("first","tp-account-registrations/find","second",accountSSN);
+        specWithAutherization.pathParams("first","tp-account-registrations/find","second",ACCOUNT_SSN);
 
         //Set Expected Data
-        Account expectedData= AccountTestData.getTestDataForAccount(accountId,accountSSN);
+        Account expectedData= AccountTestData.getTestDataForAccount(ACCOUNT_ID,ACCOUNT_SSN);
         System.out.println(expectedData);
 
         //Request - Response

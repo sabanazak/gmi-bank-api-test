@@ -7,12 +7,11 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
-import static tests.TpCountryResourceApiTest.CR01_Post_CreateTPCountry.countryId;
 
 public class CR03_Get_GetAllTPCountries extends GMIBankBaseUrl {
 
     @Test
-    public void CR02_getAllTPCountries() {
+    public void CR03_getAllTPCountries() {
         //Set uri
         specWithAutherization.pathParams("first","tp-countries");
 

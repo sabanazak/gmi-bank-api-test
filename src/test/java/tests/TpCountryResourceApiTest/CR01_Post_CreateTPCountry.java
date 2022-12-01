@@ -6,15 +6,10 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 import pojos.Country;
-import pojos.State;
-import pojos.User_Response;
-import pojos.payloads.CountryPayload;
-import pojos.payloads.User_Payload;
-import test_datas.CountryTestData;
-import test_datas.UserTestData;
 
-import java.util.ArrayList;
-import java.util.List;
+import pojos.payloads.CountryPayload;
+
+import test_datas.CountryTestData;
 
 import static io.restassured.RestAssured.given;
 import static org.apache.http.HttpStatus.SC_CREATED;
@@ -58,7 +53,7 @@ public class CR01_Post_CreateTPCountry extends GMIBankBaseUrl {
             }
  */
 
-    static int countryId;
+    static int COUNTRY_ID;
     @Test
     public void CR01_creteCountry() {
 
@@ -86,7 +81,7 @@ public class CR01_Post_CreateTPCountry extends GMIBankBaseUrl {
         assertEquals(expectedData.getName(),actualData.getName());
         assertEquals(expectedData.getStates().size(),actualData.getStates().size());
 
-        countryId=actualData.getId();
+        COUNTRY_ID=actualData.getId();
 
     }
 

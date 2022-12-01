@@ -9,18 +9,15 @@ import test_datas.AccountTestData;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
-import static tests.TpAccountRegistrations.AR01_Post_CreateAccount.accountId;
-import static tests.TpAccountRegistrations.AR01_Post_CreateAccount.accountSSN;
+import static tests.TpAccountRegistrations.AR01_Post_CreateAccount.*;
 
 public class AR06_Delete_DeleteAccount extends GMIBankBaseUrl {
 
     @Test
     public void AR06_deleteAccountById() {
 
-        //accountId=164136;
-
         //Set the url
-        specWithAutherization.pathParams("first","tp-account-registrations","second",accountId);
+        specWithAutherization.pathParams("first","tp-account-registrations","second",ACCOUNT_ID);
 
         //Set Expected Data
 

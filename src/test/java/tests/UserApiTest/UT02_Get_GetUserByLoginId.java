@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static tests.UserApiTest.UT01_Post_CreateUser.userLoginId;
+import static tests.UserApiTest.UT01_Post_CreateUser.USER_LOGIN_ID;
 
 public class UT02_Get_GetUserByLoginId extends GMIBankBaseUrl {
 /*
@@ -45,14 +45,9 @@ public class UT02_Get_GetUserByLoginId extends GMIBankBaseUrl {
  */
     @Test
     public void UT02_getUser() {
-        String userLoginID=userLoginId;
-
-        //todo: will comment
-        //userLoginID="muratazak";
-
 
         //Set the url
-        specWithAutherization.pathParams("first","users","second",userLoginID);
+        specWithAutherization.pathParams("first","users","second",USER_LOGIN_ID);
 
         //Set Expected Data
         User_Payload expectedData= UserTestData.getTestDataForUserPayrol();

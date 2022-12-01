@@ -15,7 +15,8 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
-import static tests.UserApiTest.UT01_Post_CreateUser.userLoginId;
+import static tests.UserApiTest.UT01_Post_CreateUser.USER_LOGIN_ID;
+
 
 public class UT05_Get_Authorities extends GMIBankBaseUrl {
 /*
@@ -42,7 +43,7 @@ public class UT05_Get_Authorities extends GMIBankBaseUrl {
         specWithAutherization.pathParams("first","users","second","authorities");
 
         //Set Expected Data
-        String expectedData= userLoginId;
+        String expectedData= USER_LOGIN_ID;
 
         //Request - Response
         Response response=given().spec(specWithAutherization).

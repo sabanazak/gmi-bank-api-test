@@ -10,20 +10,16 @@ import static org.apache.http.HttpStatus.SC_NO_CONTENT;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
-import static tests.UserApiTest.UT01_Post_CreateUser.userLoginId;
+import static tests.UserApiTest.UT01_Post_CreateUser.USER_LOGIN_ID;
+
 
 public class UT06_Delete_DeleteUser extends GMIBankBaseUrl {
 
     @Test
     public void UT06_deleteUser() {
 
-        String userLoginID=userLoginId;
-
-        //todo: will comment
-        if(userLoginId==null || userLoginId.isEmpty() || userLoginId.isBlank()) userLoginID="muratazak";
-
         //Set the url
-        specWithAutherization.pathParams("first","users","second",userLoginID);
+        specWithAutherization.pathParams("first","users","second",USER_LOGIN_ID);
 
         //Set the expected data
         String expectedData = "Created";

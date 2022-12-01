@@ -11,16 +11,16 @@ import utils.JSONUtils;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
-import static tests.TpCountryResourceApiTest.CR01_Post_CreateTPCountry.countryId;
+import static tests.TpCountryResourceApiTest.CR01_Post_CreateTPCountry.COUNTRY_ID;
+
 
 public class CR02_Get_GetTPCountry extends GMIBankBaseUrl {
 
     @Test
     public void CR02_getTPCountryById() {
-        int tpCountryId=countryId;
-        //if(tpCountryId==0) tpCountryId=172470;
+
         //Set uri
-        specWithAutherization.pathParams("first","tp-countries","second",tpCountryId);
+        specWithAutherization.pathParams("first","tp-countries","second",COUNTRY_ID);
 
         //Set Expected data
         CountryPayload expectedData= CountryTestData.getTestDataForCountryPayrol();

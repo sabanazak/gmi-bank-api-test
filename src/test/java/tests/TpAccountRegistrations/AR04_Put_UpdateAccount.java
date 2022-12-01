@@ -8,8 +8,7 @@ import pojos.Account;
 import test_datas.AccountTestData;
 
 import static io.restassured.RestAssured.given;
-import static tests.TpAccountRegistrations.AR01_Post_CreateAccount.accountId;
-import static tests.TpAccountRegistrations.AR01_Post_CreateAccount.accountSSN;
+import static tests.TpAccountRegistrations.AR01_Post_CreateAccount.*;
 
 
 public class AR04_Put_UpdateAccount extends GMIBankBaseUrl {
@@ -21,7 +20,7 @@ public class AR04_Put_UpdateAccount extends GMIBankBaseUrl {
         //Set the url
         specWithAutherization.pathParams("first","tp-account-registrations");
 
-        Account expectedData= AccountTestData.getTestDataForAccount(accountId,accountSSN);
+        Account expectedData= AccountTestData.getTestDataForAccount(ACCOUNT_ID,ACCOUNT_SSN);
         expectedData.setFirstName("Saban-Updated");
         expectedData.setLastName("Azak-updated");
         System.out.println(expectedData);

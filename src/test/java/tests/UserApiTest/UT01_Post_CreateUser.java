@@ -14,7 +14,6 @@ import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
-import static utils.AuthUtils.generateToken;
 
 public class UT01_Post_CreateUser extends GMIBankBaseUrl {
 /*
@@ -49,8 +48,7 @@ public class UT01_Post_CreateUser extends GMIBankBaseUrl {
                 "resetDate": "2022-11-29T22:08:14.518666Z"
             }
  */
-    static String userLoginId;
-    static int userId;
+    static String USER_LOGIN_ID;
     @Test
     public void UT01_creteUser() {
 
@@ -91,8 +89,8 @@ public class UT01_Post_CreateUser extends GMIBankBaseUrl {
         assertEquals(user.getEmail(),actualData.getEmail());
         assertEquals(user.getLangKey(),actualData.getLangKey());
 
-        userLoginId=actualData.getLogin();
-        userId=actualData.getId();
+        USER_LOGIN_ID=actualData.getLogin();
+
 
     }
 
