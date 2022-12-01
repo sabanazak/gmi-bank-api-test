@@ -8,8 +8,6 @@ import static utils.AuthUtils.generateToken;
 
 public class GMIBankBaseUrl {
 
-
-    protected RequestSpecification spec;
     protected RequestSpecification specWithAutherization;
 
     @Before
@@ -20,7 +18,6 @@ public class GMIBankBaseUrl {
                 setBaseUri(API_URL).
                 addHeader("Authorization","Bearer "+generateToken()).
                 build();
-        spec = new RequestSpecBuilder().setBaseUri(API_URL).build();
 
     }
 }
