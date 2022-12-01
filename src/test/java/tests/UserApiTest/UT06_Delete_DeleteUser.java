@@ -20,7 +20,7 @@ public class UT06_Delete_DeleteUser extends GMIBankBaseUrl {
         String userLoginID=userLoginId;
 
         //todo: will comment
-        //userLoginID="muratazak";
+        if(userLoginId==null || userLoginId.isEmpty() || userLoginId.isBlank()) userLoginID="muratazak";
 
         //Set the url
         specWithAutherization.pathParams("first","users","second",userLoginID);

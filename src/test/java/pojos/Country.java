@@ -2,13 +2,15 @@ package pojos;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
+import java.util.ArrayList;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Country {
     public int id;
     public String name;
-    public Object states;
+    private ArrayList<State> states;
 
-    public Country(int id, String name, Object states) {
+    public Country(int id, String name, ArrayList<State> states) {
         this.id = id;
         this.name = name;
         this.states = states;
@@ -33,11 +35,11 @@ public class Country {
         this.name = name;
     }
 
-    public Object getStates() {
+    public ArrayList<State> getStates() {
         return states;
     }
 
-    public void setStates(Object states) {
+    public void setStates(ArrayList<State> states) {
         this.states = states;
     }
 

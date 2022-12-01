@@ -1,19 +1,20 @@
-package pojos;
+package pojos.payloads;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import pojos.State;
 
 import java.util.ArrayList;
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CountryPost {
+public class CountryPayload {
 
     private String name;
     private ArrayList<State> states;
 
-    public CountryPost(String name, ArrayList<State> states) {
+    public CountryPayload(String name, ArrayList<State> states) {
         this.name = name;
         this.states = states;
     }
 
-    public CountryPost() {
+    public CountryPayload() {
     }
 
     public String getName() {

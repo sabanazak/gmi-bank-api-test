@@ -14,6 +14,7 @@ import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
+import static utils.AuthUtils.generateToken;
 
 public class UT01_Post_CreateUser extends GMIBankBaseUrl {
 /*
@@ -60,9 +61,25 @@ public class UT01_Post_CreateUser extends GMIBankBaseUrl {
         System.out.println("Expected Data = "+user);
 
         //Request - Response
-        Response response=given().spec(specWithAutherization).contentType(ContentType.JSON).body(user).when().post("/{first}");
+        Response response=given().
+                                spec(specWithAutherization).
+                                contentType(ContentType.JSON).
+                                body(user).
+                            when().
+                                post("/{first}");
         response.prettyPrint();
 
+        //Or
+        /*
+        Response response1=given().contentType(ContentType.JSON).
+                                    baseUri("https://www.gmibank.com/api/").
+                                    basePath("users").
+                                    headers("Authorization","Bearer "+generateToken()).
+                                    body(user).
+                            when().
+                                    post();
+        response1.prettyPrint();
+        */
         User_Response actualData= response.as(User_Response.class);
         System.out.println("Actual Data = "+actualData);
 

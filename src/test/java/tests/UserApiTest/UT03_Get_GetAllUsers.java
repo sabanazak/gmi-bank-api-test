@@ -7,7 +7,9 @@ import io.restassured.response.Response;
 import org.junit.Test;
 import pojos.User_Response;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static io.restassured.RestAssured.given;
@@ -33,12 +35,16 @@ public class UT03_Get_GetAllUsers extends GMIBankBaseUrl {
 
         List<User_Response> userList=response.body().as(new TypeRef<List<User_Response>>(){});
         System.out.println(userList);
+
+        List<User_Response> userList2 = response.path("");
+        System.out.println(userList2);
+
         System.out.println("Login Count (userList) = " + userList.size());
         List<String> logins=response.jsonPath().getList("login");
         System.out.println("Login Count = (logins) " + logins.size());
 
-        List<User_Response> loginsWithGroovy=userList.stream().filter(u->(u.getLogin().equals("muratazak"))).collect(Collectors.toList());
-        System.out.println("Login (muratazak) = " + loginsWithGroovy);
+        List<User_Response> loginsWithLambda=userList.stream().filter(u->(u.getLogin().equals("muratazak"))).collect(Collectors.toList());
+        System.out.println("Login (muratazak) = " + loginsWithLambda);
         //Do Assertions
 
         assertEquals(200,response.statusCode());
